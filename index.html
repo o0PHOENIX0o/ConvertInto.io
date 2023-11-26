@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+	<head>
+		<title>ConvertInto.io</title>
+		<link type = 'text/css' rel = 'stylesheet' href = 'css/style.css'>
+		<script type="text/javascript" src="js/script.js"></script>
+	</head>
+	<link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
+	<body style="background-color:#3ac4c5;" onload="load()">
+
+		<div class="loader" id="loader">
+  			<span class="loader__element"></span>
+  			<span class="loader__element"></span>
+  			<span class="loader__element"></span>
+		</div>
+		<center>
+
+			<header class="header">
+				<h1 style="font-family:'Schoolbell', arial, serif;  border: 2px; border-color: #d32c41; border-style: groove; border-radius: 80px;">ConvertInto.io</h1>
+			</header>
+
+			<img src="https://user-images.githubusercontent.com/119154806/236894300-bf522df6-7fd0-4ce2-8dd6-9e51cf183a4e.png">
+			<h2 style="font-family:'Schoolbell', arial, serif">Choose and enter value:</h2>
+
+			<select name="Selector" id="option" style="font-family:'Schoolbell', arial, serif; border: 1.5px; border-color: red; border-style: groove; border-radius: 15px;" onclick="changeVal()">
+				<option value="Angle">Angle</option>
+				<option value="Data">Data</option>
+				<option value="Mass">Mass</option>
+				<option value="Temperature">Temperature</option>
+				<option value="Time">Time</option>
+				<option value="Length">Length</option>
+				<option value="Frequency">Frequency</option>
+				<option value="Force">Force</option>
+				<option value="Power">Power</option>
+			</select>
+			<br><br>
+
+			<select name="Values" id="value" style="font-family:'Schoolbell', arial, serif; border: 1px; border-color: darkblue; border-style: groove; border-radius: 15px;">
+				<option value="op1" id="op1">Degree</option>
+				<option value="op2" id="op2">Radian</option>
+				<option value="op3" id="op3">Minutes</option>
+				<option value="op4" id="op4">Seconds</option>
+				<option value="op5" id="op5">Revolution</option>
+				<option value="op6" id="op6" style="display: none;"></option>
+			</select>
+
+			<span style="font-family:'Schoolbell', arial, serif">to</span>
+
+			<select name="Values" id="value2" style="font-family:'Schoolbell', arial, serif; border: 1px; border-color: darkblue; border-style: groove; border-radius: 15px;">
+				<option value="opb1" id="opb1">Degree</option>
+				<option value="opb2" id="opb2">Radian</option>
+				<option value="opb3" id="opb3">Minutes</option>
+				<option value="opb4" id="opb4">Seconds</option>
+				<option value="opb5" id="opb5">Revolution</option>
+				<option value="opb6" id="opb6" style="display: none;"></option>
+			</select>
+
+			<input id="input" type="number" placeholder="  Value" style="font-family:'Schoolbell', arial, serif; border: 1px; border-color: darkblue; border-style: groove; border-radius: 15px;"/>
+
+			<br><br>
+
+			<button type="button" onclick="calculateVal()" style="font-family:'Schoolbell', arial, serif; border: 1px; border-color: darkblue; border-style: groove; border-radius: 15px;">Convert</button>
+			<p id="paragraph" style="font-family:'Schoolbell', arial, serif; letter-spacing: 2px;" >Result will be shown here.</p>
+			<br><br>
+			<h3 style="font-family:'Schoolbell', arial, serif">About ConvertInto.io</h3>
+			<p style="font-family:'Schoolbell', arial, serif; margin-top: -15px;">This webpage is purely written in HTML, CSS & JavaScript by <b>Ayush</b>. <br> To help users convert between all the different units of different measurements.</p>
+		</center>
+
+	</body>
+</html>
