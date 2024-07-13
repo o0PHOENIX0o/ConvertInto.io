@@ -14,6 +14,19 @@ input[type=number] {
   --size: 5px;
 }
 
+*{
+  font-family: 'Roboto Mono', arial, serif !important;
+  color: white;
+}
+
+body{
+  background-color: hsl(0, 0%, 7%);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
 .loader {
   background-color: var(--main-color);
   overflow: hidden;
@@ -45,12 +58,144 @@ input[type=number] {
   animation: preloader .6s ease-in-out alternate .4s infinite;
 }
 .header {
-  padding: 0px;
+
+  display: flex;
+    justify-content: center;
+    align-items: center;
+
+  width: 100%;
+
   text-align: center;
-  color: red;
+  color: white;
   font-size: 25px;
+  background-color: hsl(0, 0%, 22%);
+  border: 2px;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
  
+}
+
+.header h1{
+  margin: 0;
+}
+.header img{
+  margin: 0 1rem 0 1rem;
+
 }
 @keyframes preloader {
   100% { transform: scale(2); }
+}
+
+
+.container{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: hsl(0, 0%, 22%);
+  gap: 2rem;
+}
+
+
+
+
+.fields select{
+  color:black;
+  cursor: pointer;
+}
+.fields input{
+  color: black;
+}
+
+
+.fields select,
+.fields input{
+  padding: 1rem;
+  border-radius: 1rem;
+  color: white;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    border: 1px solid hsl(45, 100%, 72%);
+}
+
+option{
+  background-color: hsl(0, 0%, 22%);
+  color: white;
+}
+
+
+#option{
+  min-width: 100%;
+}
+
+button{
+  max-width: max-content;
+  cursor: pointer;
+  background-color: black;
+  padding: 1rem;
+  color: hsl(45, 100%, 72%);
+  border-radius: 20px;
+  background: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsl(0deg 0% 9.6% / 63%) 50%);
+  box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+  transition: all 1s;
+}
+
+button:hover{
+  background: linear-gradient(to bottom right, hsl(45deg 72.49% 37.06%) 0%, hsl(45deg 59.45% 22.31%) 25%, hsl(0deg 0% 0% / 75%) 50%) !important;
+}
+
+.Button{
+  display: flex;
+    justify-content: center;  
+}
+
+
+.fields{
+  display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+}
+
+footer{
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: hsl(0, 0%, 22%);
+}
+
+footer p{
+  text-align: center;
+}
+
+footer h2{
+  width: 100%;
+    text-align: center;
+}
+
+h1,h2{
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: hsl(45, 100%, 72%);
+}
+
+@media (min-width:1150px) {
+  .header h1{
+    margin: 0;
+    letter-spacing: 1rem;
+  }
 }

@@ -1,5 +1,5 @@
 function load(){
-	setTimeout(func, 2000);
+	setTimeout(func, 0);
 }
 function func() {
     document.querySelector('#loader').style.display = 'none';
