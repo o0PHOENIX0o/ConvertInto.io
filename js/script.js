@@ -1,871 +1,1074 @@
 function load(){
-	setTimeout(func, 2000);
+	createOptions(angleUnits, "value");
+	createOptions(angleUnits, "value2");
+	setTimeout(removeLoader, 500);
 }
-function func() {
+function removeLoader() {
     document.querySelector('#loader').style.display = 'none';
 }
+
+
+function createOptions(unit, id){
+	let idValue = "op";
+	
+	$(`#${id}`).empty();
+
+	if(id == "value2"){
+		idValue = "opb";
+	}
+
+	unit.forEach((option, index) => {
+		const newOption = document.createElement("option");
+		newOption.value = option;
+		newOption.textContent = option;
+		newOption.id = `${idValue}${index+1}`;
+		$(`#${id}`).append(newOption);
+	});
+}
+
+const angleUnits = ["Degree", "Radian", "Minutes","Seconds","Revolution"];
+const dataUnits = ["Bit", "Byte", "Kilobyte", "Megabyte", "Gigabyte", "Terabyte"];
+const lengthUnits = ["Millimeter", "Centimeter", "Meter", "Kilometer", "Inch", "Foot"];
+const temperatureUnits = ["Celsius", "Fahrenheit", "Kelvin"];
+const forceUnits = ["Newton", "Kilonewton", "Dyne"];
+const frequencyUnits = ["Hertz", "Kilohertz", "Megahertz", "Gigahertz"];
+const massUnits = ["Gram", "Kilogram", "Metric Ton", "Metric Quintal"];
+const powerUnits = ["Watt", "Kilowatt", "Megawatt", "Horsepower"];
+const timeUnits = ["Second", "Minute", "Hour"];
+
+
+
 function changeVal(){
 
 	document.querySelector('#value').value=op1.value;
 	document.querySelector('#value2').value=opb1.value;
 
-	if(option.value=="Angle"){
-		op1.innerHTML= "Degree";
-		op2.innerHTML= "Radian";
-		op3.innerHTML= "Minutes";
-		op4.innerHTML= "Seconds";
-		op5.innerHTML= "Revolution";
-
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-		document.querySelector('#op4').style.display = 'block';
-		document.querySelector('#op5').style.display = 'block';
-
-		document.querySelector('#op6').style.display = 'none';
-
-		opb1.innerHTML= "Degree";
-		opb2.innerHTML= "Radian";
-		opb3.innerHTML= "Minutes";
-		opb4.innerHTML= "Seconds";
-		opb5.innerHTML= "Revolution";
-
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-		document.querySelector('#opb4').style.display = 'block';
-		document.querySelector('#opb5').style.display = 'block';
-
-		document.querySelector('#opb6').style.display = 'none';
-	}
-	if(option.value=="Data"){
-		op1.innerHTML= "Bit";
-		op2.innerHTML= "Byte";
-		op3.innerHTML= "Kilobyte";
-		op4.innerHTML= "Megabyte";
-		op5.innerHTML= "Gigabyte";
-		op6.innerHTML= "Terabyte";
-
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-		document.querySelector('#op4').style.display = 'block';
-		document.querySelector('#op5').style.display = 'block';
-		document.querySelector('#op6').style.display = 'block';
-
-		opb1.innerHTML= "Bit";
-		opb2.innerHTML= "Byte";
-		opb3.innerHTML= "Kilobyte";
-		opb4.innerHTML= "Megabyte";
-		opb5.innerHTML= "Gigabyte";
-		opb6.innerHTML= "Terabyte";
-
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-		document.querySelector('#opb4').style.display = 'block';
-		document.querySelector('#opb5').style.display = 'block';
-		document.querySelector('#opb6').style.display = 'block';
-	}
-	if(option.value=="Length"){
-		op1.innerHTML= "Millimeter";
-		op2.innerHTML= "Centimeter";
-		op3.innerHTML= "Meter";
-		op4.innerHTML= "Kilometer";
-		op5.innerHTML= "Inch";
-		op6.innerHTML= "Foot";
-
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-		document.querySelector('#op4').style.display = 'block';
-		document.querySelector('#op5').style.display = 'block';
-		document.querySelector('#op6').style.display = 'block';
-
-		opb1.innerHTML= "Millimeter";
-		opb2.innerHTML= "Centimeter";
-		opb3.innerHTML= "Meter";
-		opb4.innerHTML= "Kilometer";
-		opb5.innerHTML= "Inch";
-		opb6.innerHTML= "Foot";
-
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-		document.querySelector('#opb4').style.display = 'block';
-		document.querySelector('#opb5').style.display = 'block';
-		document.querySelector('#opb6').style.display = 'block';
-	}
-	if(option.value=="Temperature"){
-		op1.innerHTML= "Celcius";
-		op2.innerHTML= "Fahrenheit";
-		op3.innerHTML= "Kelvin";
-
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-
-		document.querySelector('#op4').style.display = 'none';
-		document.querySelector('#op5').style.display = 'none';
-		document.querySelector('#op6').style.display = 'none';
-
-		opb1.innerHTML= "Celcius";
-		opb2.innerHTML= "Fahrenheit";
-		opb3.innerHTML= "Kelvin";
-
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-
-		document.querySelector('#opb4').style.display = 'none';
-		document.querySelector('#opb5').style.display = 'none';
-		document.querySelector('#opb6').style.display = 'none';
-	}
-	if(option.value=="Force"){
-		op1.innerHTML= "Newton";
-		op2.innerHTML= "Kilonewton";
-		op3.innerHTML= "Dyne";
-
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-
-		document.querySelector('#op4').style.display = 'none';
-		document.querySelector('#op5').style.display = 'none';
-		document.querySelector('#op6').style.display = 'none';
-
-		opb1.innerHTML= "Newton";
-		opb2.innerHTML= "Kilonewton";
-		opb3.innerHTML= "Dyne";
-
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-
-		document.querySelector('#opb4').style.display = 'none';
-		document.querySelector('#opb5').style.display = 'none';
-		document.querySelector('#opb6').style.display = 'none';
-	}
-	if(option.value=="Frequency"){
-		op1.innerHTML= "Hertz";
-		op2.innerHTML= "Kilohertz";
-		op3.innerHTML= "Megahertz";
-		op4.innerHTML= "Gigahertz";
-
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-		document.querySelector('#op4').style.display = 'block';
-
-		document.querySelector('#op5').style.display = 'none';
-		document.querySelector('#op6').style.display = 'none';
-
-		opb1.innerHTML= "Hertz";
-		opb2.innerHTML= "Kilohertz";
-		opb3.innerHTML= "Megahertz";
-		opb4.innerHTML= "Gigahertz";
-
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-		document.querySelector('#opb4').style.display = 'block';
-
-		document.querySelector('#opb5').style.display = 'none';
-		document.querySelector('#opb6').style.display = 'none';
-	}
-	if(option.value=="Mass"){
-		op1.innerHTML= "Gram";
-		op2.innerHTML= "Kilogram";
-		op3.innerHTML= "Metric Ton";
-		op4.innerHTML= "Metric Quintal";
-
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-		document.querySelector('#op4').style.display = 'block';
-
-		document.querySelector('#op5').style.display = 'none';
-		document.querySelector('#op6').style.display = 'none';
-
-		opb1.innerHTML= "Gram";
-		opb2.innerHTML= "Kilogram";
-		opb3.innerHTML= "Metric Ton";
-		opb4.innerHTML= "Metric Quintal";
-
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-		document.querySelector('#opb4').style.display = 'block';
-
-		document.querySelector('#opb5').style.display = 'none';
-		document.querySelector('#opb6').style.display = 'none';
-	}
-	if(option.value=="Power"){
-		op1.innerHTML= "Watt";
-		op2.innerHTML= "Kilowatt";
-		op3.innerHTML= "Megawatt";
-		op4.innerHTML= "Horsepower";
+	switch (option.value) {
+		case "Angle":
+			createOptions(angleUnits, "value");
+			createOptions(angleUnits, "value2");
+			break;
+		case "Data":
+			createOptions(dataUnits, "value");
+			createOptions(dataUnits, "value2");
+			break;
+		case "Length":
+			createOptions(lengthUnits, "value");
+			createOptions(lengthUnits, "value2");
+			break;
+		case "Temperature":
+			createOptions(temperatureUnits, "value");
+			createOptions(temperatureUnits, "value2");
+			break;
+		case "Force":
+			createOptions(forceUnits, "value");
+			createOptions(forceUnits, "value2");
+			break;
+		case "Frequency":
+			createOptions(frequencyUnits, "value");
+			createOptions(frequencyUnits, "value2");
+			break;
+		case "Mass":
+			createOptions(massUnits, "value");
+			createOptions(massUnits, "value2");
+			break;
+		case "Power":
+			createOptions(powerUnits, "value");
+			createOptions(powerUnits, "value2");
+			break;
+		case "Time":
+			createOptions(timeUnits, "value");
+			createOptions(timeUnits, "value2");
+			break;
 		
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-		document.querySelector('#op4').style.display = 'block';
-		
-		document.querySelector('#op5').style.display = 'none';
-		document.querySelector('#op6').style.display = 'none';
-
-		opb1.innerHTML= "Watt";
-		opb2.innerHTML= "Kilowatt";
-		opb3.innerHTML= "Megawatt";
-		opb4.innerHTML= "Horsepower";
-		
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-		document.querySelector('#opb4').style.display = 'block';
-		
-		document.querySelector('#opb5').style.display = 'none';
-		document.querySelector('#opb6').style.display = 'none';
 	}
-	if(option.value=="Time"){
-		op1.innerHTML= "Second";
-		op2.innerHTML= "Minute";
-		op3.innerHTML= "Hour";
 
-		//Setting Visibility
-		document.querySelector('#op1').style.display = 'block';
-		document.querySelector('#op2').style.display = 'block';
-		document.querySelector('#op3').style.display = 'block';
-
-		document.querySelector('#op4').style.display = 'none';
-		document.querySelector('#op5').style.display = 'none';
-		document.querySelector('#op6').style.display = 'none';
-
-		opb1.innerHTML= "Second";
-		opb2.innerHTML= "Minute";
-		opb3.innerHTML= "Hour";
-
-		//Setting Visibility
-		document.querySelector('#opb1').style.display = 'block';
-		document.querySelector('#opb2').style.display = 'block';
-		document.querySelector('#opb3').style.display = 'block';
-
-		document.querySelector('#opb4').style.display = 'none';
-		document.querySelector('#opb5').style.display = 'none';
-		document.querySelector('#opb6').style.display = 'none';
-	}
-}
-function myFunction() {
-	if(temp.value=="Celcius"){
-		document.getElementById("paragraph").innerHTML = "Value in Fahrenheit= "+((input.value*1.8)+32).toFixed(2)+" And Kelvin= "+(parseFloat(input.value)+273.15).toFixed(2);
-	}
-	else if(temp.value=="Fahrenheit"){
-		document.getElementById("paragraph").innerHTML = "Value in Celcius= "+((input.value-32)/1.8).toFixed(2)+" And Kelvin= "+(((input.value-32)/1.8)+273.15).toFixed(2);
-	}
-	else{
-		document.getElementById("paragraph").innerHTML = "Value in Celcius= "+(parseFloat(input.value)-273.15).toFixed(2)+" And Fahrenheit= "+(((parseFloat(input.value)-273.15)*1.8)+32).toFixed(2);
-	}
 }
 
-function calculateVal(){
-	if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text==document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text){
-		if(input.value!=""){
-			document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+input.value;
-		}
-		else{
-			document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": 0";
-		}
-	}
-	if(option.value=="Angle"){
-		//Converting Degree
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Degree"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Radian"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/57.29578).toFixed(4);
+function calculateVal() {
+    const $value = $("#value");
+    const $value2 = $("#value2");
+    const $input = $("#input");
+    const $paragraph = $("#paragraph");
+
+    const selectedValue = $value.find("option:selected").text();
+    const selectedValue2 = $value2.find("option:selected").text();
+    const inputValue = $input.val() || "0";
+
+    if (selectedValue === selectedValue2) {
+        $paragraph.html(`Value in ${selectedValue2}: ${inputValue}`);
+        return;
+    }
+
+    if (selectedValue === "Degree") {
+        let conversionFactor;
+        
+        switch (selectedValue2) {
+            case "Radian":
+                conversionFactor = 57.29578;
+                break;
+            case "Minutes":
+                conversionFactor = 60;
+                break;
+            case "Seconds":
+                conversionFactor = 3600;
+                break;
+            case "Revolution":
+                conversionFactor = 360;
+                break;
+            default:
+                conversionFactor = 1; 
+        }
+
+		const result = (inputValue / conversionFactor).toFixed(4);
+        $paragraph.html(`Value in ${selectedValue2}: ${result}`);
+
+
+		// Converting Radian
+		if (selectedValue === "Radian") {
+			let conversionFactor;
+
+			switch (selectedValue2) {
+				case "Degree":
+					conversionFactor = 57.29578;
+					break;
+				case "Minutes":
+					conversionFactor = 60 * 57.29578;
+					break;
+				case "Seconds":
+					conversionFactor = 3600 * 57.29578;
+					break;
+				case "Revolution":
+					conversionFactor = 7.29578 / 360;
+					break;
+				default:
+					conversionFactor = 1;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Minutes"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*60).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Seconds"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*3600).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Revolution"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/360).toFixed(4);
-			}
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
-		//Converting Radian
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Radian"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Degree"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*57.29578).toFixed(4);
+
+		// Converting Minutes
+		if (selectedValue === "Minutes") {
+			let conversionFactor;
+
+			switch (selectedValue2) {
+				case "Degree":
+					conversionFactor = 60;
+					break;
+				case "Radian":
+					conversionFactor = 3438;
+					break;
+				case "Seconds":
+					conversionFactor = 60;
+					break;
+				case "Revolution":
+					conversionFactor = 21600;
+					break;
+				default:
+					conversionFactor = 1;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Minutes"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*60*57.29578).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Seconds"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*3600*57.29578).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Revolution"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value*57.29578)/360).toFixed(4);
-			}
+			const result = (inputValue / conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
-		//Converting Minutes
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Minutes"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Degree"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/60).toFixed(4);
+		// Converting Seconds
+		if (selectedValue === "Seconds") {
+			let conversionFactor;
+
+			switch (selectedValue2) {
+				case "Degree":
+					result = 3600;
+					break;
+				case "Radian":
+					result = 206300;
+					break;
+				case "Minutes":
+					result = 60;
+					break;
+				case "Revolution":
+					result = 1296000;
+					break;
+				default:
+					result = 1;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Radian"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/3438).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Seconds"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*60).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Revolution"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/21600).toFixed(4);
-			}
+			const result = (inputValue / conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
-		//Converting Seconds
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Seconds"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Degree"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/3600).toFixed(4);
+
+		// Converting Revolution
+		if (selectedValue === "Revolution") {
+			let conversionFactor;
+
+			switch (selectedValue2) {
+				case "Degree":
+					conversionFactor = 360;
+					break;
+				case "Radian":
+					conversionFactor = 6.283;
+					break;
+				case "Minutes":
+					conversionFactor = 21600;
+					break;
+				case "Seconds":
+					conversionFactor = 1296000;
+					break;
+				default:
+					conversionFactor = 1;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Radian"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/206300).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Minutes"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/60).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Revolution"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1296000).toFixed(4);
-			}
+
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
-		//Converting Revolution
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Revolution"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Degree"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*360).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Radian"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*6.283).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Minutes"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*21600).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Seconds"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1296000).toFixed(4);
-			}
-		}
 	}
 
 
 	if(option.value=="Data"){
 		//Converting Bit
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Bit"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Byte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/8).toFixed(4);
+		if (selectedValue === "Bit") {
+			switch (selectedValue2) {
+				case "Byte":
+					conversionFactor = 8;
+					break;
+				case "Kilobyte":
+					conversionFactor = 8000;
+					break;
+				case "Megabyte":
+					conversionFactor = 8000000;
+					break;
+				case "Gigabyte":
+					conversionFactor = 8e9;
+					break;
+				case "Terabyte":
+					conversionFactor = 8e12;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilobyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/8000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/8000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gigabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(8.0000E+9)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Terabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(8.0000E+12)).toFixed(4);
-			}
+		
+			const result = (inputValue / conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
 		//Converting Byte
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Byte"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Bit"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*8).toFixed(4);
+		if (selectedValue === "Byte") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Bit":
+					conversionFactor = 8;
+					break;
+				case "Kilobyte":
+					conversionFactor = 0.001; // 1 Byte = 0.001 Kilobyte
+					break;
+				case "Megabyte":
+					conversionFactor = 1e-6; // 1 Byte = 1e-6 Megabyte
+					break;
+				case "Gigabyte":
+					conversionFactor = 1e-9; // 1 Byte = 1e-9 Gigabyte
+					break;
+				case "Terabyte":
+					conversionFactor = 1e-12; // 1 Byte = 1e-12 Terabyte
+					break;
+				default:
+					conversionFactor = 1; // default case (shouldn't happen)
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilobyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gigabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1.0000E+9)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Terabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1.0000E+12)).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
 		//Converting Kilobyte
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Kilobyte"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Bit"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*8000).toFixed(4);
+		if (selectedValue === "Kilobyte") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Bit":
+					conversionFactor = 8000;
+					break;
+				case "Byte":
+					conversionFactor = 1000;
+					break;
+				case "Megabyte":
+					conversionFactor = 0.001;
+					break;
+				case "Gigabyte":
+					conversionFactor = 1e-6;
+					break;
+				case "Terabyte":
+					conversionFactor = 1e-9;
+					break;
+				default:
+					conversionFactor = 1; // default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Byte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gigabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1000000)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Terabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1.0000E+9)).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Megabyte
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Megabyte"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Bit"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*8000000).toFixed(4);
+		if (selectedValue === "Megabyte") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Bit":
+					conversionFactor = 8000000;
+					break;
+				case "Byte":
+					conversionFactor = 1000000;
+					break;
+				case "Kilobyte":
+					conversionFactor = 1000;
+					break;
+				case "Gigabyte":
+					conversionFactor = 0.001;
+					break;
+				case "Terabyte":
+					conversionFactor = 1e-6;
+					break;
+				default:
+					conversionFactor = 1; // default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Byte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilobyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gigabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1000)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Terabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1000000)).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
 		//Converting Gigabyte
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Gigabyte"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Bit"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(8.0000E+9)).toFixed(4);
+		
+		if (selectedValue === "Gigabyte") {
+			let conversionFactor;
+
+			switch (selectedValue2) {
+				case "Bit":
+					conversionFactor = 8e9;
+					break;
+				case "Byte":
+					conversionFactor = 1e9;
+					break;
+				case "Kilobyte":
+					conversionFactor = 1e6;
+					break;
+				case "Megabyte":
+					conversionFactor = 1000;
+					break;
+				case "Terabyte":
+					conversionFactor = 0.001;
+					break;
+				default:
+					conversionFactor = 1; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Byte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1.0000E+9)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilobyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1000)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Terabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1000)).toFixed(4);
-			}
+
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
 		//Converting Terabyte
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Terabyte"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Bit"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(8.0000E+12)).toFixed(4);
+		if (selectedValue === "Terabyte") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Bit":
+					conversionFactor = 8e12;
+					break;
+				case "Byte":
+					conversionFactor = 1e12;
+					break;
+				case "Kilobyte":
+					conversionFactor = 1e9;
+					break;
+				case "Megabyte":
+					conversionFactor = 1e6;
+					break;
+				case "Gigabyte":
+					conversionFactor = 1000;
+					break;
+				default:
+					conversionFactor = 1; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Byte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1.0000E+12)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilobyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1.0000E+9)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1000000)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gigabyte"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1000)).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 	}
 
 	if(option.value=="Mass"){
 		//Converting Gram
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Gram"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilogram"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
+		if (selectedValue === "Gram") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Kilogram":
+					conversionFactor = 0.001; // 1 Gram = 0.001 Kilogram
+					break;
+				case "Metric Ton":
+					conversionFactor = 1e-6; // 1 Gram = 0.000001 Metric Ton
+					break;
+				case "Metric Quintal":
+					conversionFactor = 0.00001; // 1 Gram = 0.00001 Metric Quintal
+					break;
+				default:
+					conversionFactor = 1; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Metric Ton"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Metric Quintal"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/100000).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
 		//Converting Kilogram
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Kilogram"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gram"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
+		if (selectedValue === "Kilogram") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Gram":
+					conversionFactor = 1000; // 1 Kilogram = 1000 Grams
+					break;
+				case "Metric Ton":
+					conversionFactor = 0.001; // 1 Kilogram = 0.001 Metric Tons
+					break;
+				case "Metric Quintal":
+					conversionFactor = 10; // 1 Kilogram = 10 Metric Quintals
+					break;
+				default:
+					conversionFactor = 1; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Metric Ton"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Metric Quintal"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/100).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
 		//Converting Metric Ton
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Metric Ton"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gram"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000000).toFixed(4);
+		if (selectedValue === "Metric Ton") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Gram":
+					conversionFactor = 1e6; // 1 Metric Ton = 1,000,000 Grams
+					break;
+				case "Kilogram":
+					conversionFactor = 1000; // 1 Metric Ton = 1,000 Kilograms
+					break;
+				case "Metric Quintal":
+					conversionFactor = 100; // 1 Metric Ton = 100 Metric Quintals
+					break;
+				default:
+					conversionFactor = 1; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilogram"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Metric Quintal"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*10).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 
 		//Converting Metric Quintal
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Metric Quintal"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gram"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*100000).toFixed(4);
+		if (selectedValue === "Metric Quintal") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Gram":
+					conversionFactor = 100000; // 1 Metric Quintal = 100,000 Grams
+					break;
+				case "Kilogram":
+					conversionFactor = 100; // 1 Metric Quintal = 100 Kilograms
+					break;
+				case "Metric Ton":
+					conversionFactor = 0.1; // 1 Metric Quintal = 0.1 Metric Tons
+					break;
+				default:
+					conversionFactor = 1; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilogram"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*100).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Metric Ton"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/10).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 	}
 
 	if(option.value=="Temperature"){
 		//Converting Celcius
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Celcius"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Fahrenheit"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1.8)+32).toFixed(4);
+		if (selectedValue === "Celsius") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Fahrenheit":
+					conversionFactor = (inputValue * 1.8) + 32; // Celsius to Fahrenheit
+					break;
+				case "Kelvin":
+					conversionFactor = (inputValue + 273.15); // Celsius to Kelvin
+					break;
+				default:
+					conversionFactor = inputValue; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kelvin"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1)+273.15).toFixed(4);
-			}
+		
+			const result = conversionFactor.toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Fahrenheit
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Fahrenheit"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Celcius"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value*(1)-32)/(1.8)).toFixed(4);
+		if (selectedValue === "Fahrenheit") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Celsius":
+					conversionFactor = (inputValue - 32) / 1.8; // Fahrenheit to Celsius
+					break;
+				case "Kelvin":
+					conversionFactor = ((inputValue + 459.67) / 1.8); // Fahrenheit to Kelvin
+					break;
+				default:
+					conversionFactor = inputValue; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kelvin"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+(((input.value)*(1)+459.67)/1.8).toFixed(4);
-			}
+		
+			const result = conversionFactor.toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Kelvin
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Kelvin"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Celcius"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value*(1))-273.15).toFixed(4);
+		if (selectedValue === "Kelvin") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Celsius":
+					conversionFactor = inputValue - 273.15; // Kelvin to Celsius
+					break;
+				case "Fahrenheit":
+					conversionFactor = (inputValue - 273.15) * 1.8 + 32; // Kelvin to Fahrenheit
+					break;
+				default:
+					conversionFactor = inputValue; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Fahrenheit"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+(((input.value)*(1)-273.15)*(1.8)+32).toFixed(4);
-			}
+		
+			const result = conversionFactor.toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 	}
 
 	if(option.value=="Time"){
 		//Converting Second
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Second"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Minute"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/60).toFixed(4);
+		if (selectedValue === "Second") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Minute":
+					conversionFactor = inputValue / 60; // Seconds to Minutes
+					break;
+				case "Hour":
+					conversionFactor = inputValue / 3600; // Seconds to Hours
+					break;
+				default:
+					conversionFactor = inputValue; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Hour"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/3600).toFixed(4);
-			}
+		
+			const result = conversionFactor.toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Minute
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Minute"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Second"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*60).toFixed(4);
+		if (selectedValue === "Minute") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Second":
+					conversionFactor = inputValue * 60; // Minutes to Seconds
+					break;
+				case "Hour":
+					conversionFactor = inputValue / 60; // Minutes to Hours
+					break;
+				default:
+					conversionFactor = inputValue; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Hour"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/60).toFixed(4);
-			}
+		
+			const result = conversionFactor.toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Hour
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Hour"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Second"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*3600).toFixed(4);
+		if (selectedValue === "Hour") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Second":
+					conversionFactor = 3600; // Hours to Seconds
+					break;
+				case "Minute":
+					conversionFactor = 60; // Hours to Minutes
+					break;
+				default:
+					conversionFactor = 1; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Minute"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*60).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 	}
 
 	if(option.value=="Length"){
 		//Converting Millimeter
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Millimeter"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Centimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/10).toFixed(4);
+		if (selectedValue === "Millimeter") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Centimeter":
+					conversionFactor = 10; // Millimeters to Centimeters
+					break;
+				case "Meter":
+					conversionFactor = 1000; // Millimeters to Meters
+					break;
+				case "Kilometer":
+					conversionFactor = 1e6; // Millimeters to Kilometers
+					break;
+				case "Inch":
+					conversionFactor = 25.4; // Millimeters to Inches
+					break;
+				case "Foot":
+					conversionFactor = 304.8; // Millimeters to Feet
+					break;
+				default:
+					conversionFactor = 1; // Default case
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Meter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilometer"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Inch"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(25.4)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Foot"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(304.8)).toFixed(4);
-			}
+		
+			const result = (inputValue / conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
+	
 		}
+		
 
 		//Converting Centimeter
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Centimeter"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Millimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*10).toFixed(4);
+		if (selectedValue === "Centimeter") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Millimeter":
+					conversionFactor = 10;
+					break;
+				case "Meter":
+					conversionFactor = 100;
+					break;
+				case "Kilometer":
+					conversionFactor = 100000;
+					break;
+				case "Inch":
+					conversionFactor = 2.54;
+					break;
+				case "Foot":
+					conversionFactor = 30.48;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Meter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/100).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilometer"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/100000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Inch"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(2.54)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Foot"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(30.48)).toFixed(4);
-			}
+		
+			const result = (input.value / conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Meter
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Meter"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Millimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
+		if (selectedValue === "Meter") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Millimeter":
+					conversionFactor = 1000;
+					break;
+				case "Centimeter":
+					conversionFactor = 100;
+					break;
+				case "Kilometer":
+					conversionFactor = 0.001;
+					break;
+				case "Inch":
+					conversionFactor = 39.3700787;
+					break;
+				case "Foot":
+					conversionFactor = 3.2808399;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Centimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*100).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilometer"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Inch"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(39.3700787)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Foot"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(3.2808399)).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Kilometer
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Kilometer"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Millimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000000).toFixed(4);
+		if (selectedValue === "Kilometer") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Millimeter":
+					conversionFactor = 1e6;
+					break;
+				case "Centimeter":
+					conversionFactor = 100000;
+					break;
+				case "Meter":
+					conversionFactor = 1000;
+					break;
+				case "Inch":
+					conversionFactor = 39370.0787;
+					break;
+				case "Foot":
+					conversionFactor = 3280.8399;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Centimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*100000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Meter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Inch"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(39370.0787)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Foot"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(3280.8399)).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Inch
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Inch"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Millimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(25.4)).toFixed(4);
+		if (selectedValue === "Inch") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Millimeter":
+					conversionFactor = 25.4;
+					break;
+				case "Centimeter":
+					conversionFactor = 2.54;
+					break;
+				case "Meter":
+					conversionFactor = 39.3700787;
+					break;
+				case "Kilometer":
+					conversionFactor = 39370.0787;
+					break;
+				case "Foot":
+					conversionFactor = 12;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Centimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(2.54)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Meter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(39.3700787)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilometer"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(39370.0787)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Foot"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(12)).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Foot
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Foot"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Millimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(304.8)).toFixed(4);
+		if (selectedValue === "Foot") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Millimeter":
+					conversionFactor = 304.8;
+					break;
+				case "Centimeter":
+					conversionFactor = 30.48;
+					break;
+				case "Meter":
+					conversionFactor = 3.2808399;
+					break;
+				case "Kilometer":
+					conversionFactor = 3280.8399;
+					break;
+				case "Inch":
+					conversionFactor = 12;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Centimeter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(30.48)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Meter"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(3.2808399)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilometer"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(3280.8399)).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Inch"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(12)).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 	}
 
 
 	if(option.value=="Frequency"){
 		//Converting Hertz
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Hertz"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilohertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
+		if (selectedValue === "Hertz") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Kilohertz":
+					conversionFactor = 1000;
+					break;
+				case "Megahertz":
+					conversionFactor = 1e6;
+					break;
+				case "Gigahertz":
+					conversionFactor = 1e9;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megahertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gigahertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1.0000E+9)).toFixed(4);
-			}
+		
+			const result = (input.value / conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
-
+		
 		//Converting Kilohertz
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Kilohertz"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Hertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
+		if (selectedValue === "Kilohertz") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Hertz":
+					conversionFactor = 1000;
+					break;
+				case "Megahertz":
+					conversionFactor = 0.001;
+					break;
+				case "Gigahertz":
+					conversionFactor = 1e-6;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megahertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gigahertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000000).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Megahertz
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Megahertz"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Hertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000000).toFixed(4);
+		if (selectedValue === "Megahertz") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Hertz":
+					conversionFactor = 1e6;
+					break;
+				case "Kilohertz":
+					conversionFactor = 1000;
+					break;
+				case "Gigahertz":
+					conversionFactor = 0.001;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilohertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Gigahertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Gigahertz
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Gigahertz"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Hertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1.0000E+9)).toFixed(4);
+		if (selectedValue === "Gigahertz") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Hertz":
+					conversionFactor = 1e9;
+					break;
+				case "Kilohertz":
+					conversionFactor = 1e6;
+					break;
+				case "Megahertz":
+					conversionFactor = 1000;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilohertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megahertz"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 	}
 
 	if(option.value=="Force"){
 		//Converting Newton
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Newton"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilonewton"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
+		if (selectedValue === "Newton") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Kilonewton":
+					conversionFactor = 1000;
+					break;
+				case "Dyne":
+					conversionFactor = 100000;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Dyne"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*100000).toFixed(4);
-			}
+		
+			const result = (input.value / conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Kilonewton
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Kilonewton"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Newton"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
+		if (selectedValue === "Kilonewton") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Newton":
+					conversionFactor = 1000;
+					break;
+				case "Dyne":
+					conversionFactor = 1e8;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Dyne"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1.0000E+8)).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Dyne
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Dyne"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Newton"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/100000).toFixed(4);
+		if (selectedValue === "Dyne") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Newton":
+					conversionFactor = 1 / 100000;
+					break;
+				case "Kilonewton":
+					conversionFactor = 1 / 100000000;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilonewton"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/100000000).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 	}
 
 	if(option.value=="Power"){
 		//Converting Watt
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Watt"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilowatt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
+		if (selectedValue === "Watt") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Kilowatt":
+					conversionFactor = 1000;
+					break;
+				case "Megawatt":
+					conversionFactor = 1000000;
+					break;
+				case "Horsepower":
+					conversionFactor = 745.699872;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megawatt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Horsepower"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(745.699872)).toFixed(4);
-			}
+		
+			const result = (input.value / conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Kilowatt
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Kilowatt"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Watt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
+		if (selectedValue === "Kilowatt") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Watt":
+					conversionFactor = 1000;
+					break;
+				case "Megawatt":
+					conversionFactor = 1000;
+					break;
+				case "Horsepower":
+					conversionFactor = 1.34102209;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megawatt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Horsepower"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1.34102209)).toFixed(4);
-			}
+		
+			const result = (input.value * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
+		
 
 		//Converting Megawatt
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Megawatt"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Watt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000000).toFixed(4);
+		if (selectedValue === "Megawatt") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Watt":
+					conversionFactor = 1000000;
+					break;
+				case "Kilowatt":
+					conversionFactor = 1000;
+					break;
+				case "Horsepower":
+					conversionFactor = 1341.02209;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilowatt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*1000).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Horsepower"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*(1341.02209)).toFixed(4);
-			}
-		}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
+		}		
 
 		//Converting Horsepower
-		if(document.getElementById("value").options[document.getElementById("value").selectedIndex].text=="Horsepower"){
-			if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Watt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)*745.699872).toFixed(4);
+		if (selectedValue === "Horsepower") {
+			let conversionFactor;
+		
+			switch (selectedValue2) {
+				case "Watt":
+					conversionFactor = 745.699872;
+					break;
+				case "Kilowatt":
+					conversionFactor = 1 / 1.34102209;
+					break;
+				case "Megawatt":
+					conversionFactor = 1 / 1341.02209;
+					break;
+				default:
+					conversionFactor = 1;
+					break;
 			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Kilowatt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/1.34102209).toFixed(4);
-			}
-			else if(document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text=="Megawatt"){
-				document.getElementById("paragraph").innerHTML = "Value in "+document.getElementById("value2").options[document.getElementById("value2").selectedIndex].text+": "+((input.value)/(1341.02209)).toFixed(4);
-			}
+		
+			const result = (inputValue * conversionFactor).toFixed(4);
+			$paragraph.html(`Value in ${selectedValue2}: ${result}`);
 		}
 	}
 }
