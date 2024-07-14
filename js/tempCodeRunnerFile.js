@@ -1,2 +1,0 @@
-");
-	createOptions(angleUnits, "value2");
